@@ -2,98 +2,141 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>ROVER</title>
-  <link href="https://bootswatch.com/4/lux/bootstrap.css" 
-  rel="stylesheet">
-  <link href="static/css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ROVER</title>
+    <link href="https://bootswatch.com/4/lux/bootstrap.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 </head>
 
 <body>
-  <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-bottom">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <!-- Navigation and Search Objects -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-bottom">
+        <a class="navbar-brand" href="#">ROVER</a>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-  
-  <!-- Page Content -->
-  <section>
-    <div class="row">
-      <div class="col-lg-5">
-        <div class="container">
-          <div class="card text-white bg-transparent mb-3" style="max-width: 20rem;">
-            <div class="card-body">
-              <h4 class="card-title">Some blurb</h4>
-              <p class="card-text">Some blurb about the data if/when you have time..</p>
-            </div>
-          </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Search Sightings
+        </button>
+        <button type="button" class="btn btn-primary" id="reset-main">Clear Search</button>
+
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+
         </div>
-      </div>
-      <div class="col-lg-7">
-<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Article link</th>
-      <th>Demo</th>
-      <th>Source Code</th>
-    </tr>
-  </thead>
-   <tbody>
-    <tr>
-     
-    </tr>
-   
-  </tbody>
-</table>
-      </div>
-    </div>
-    
-  </section>
+    </nav>
+    <div class="row"></div>
+    <div class="row">
+        <div class="col align-self-center">
+                <div class="container">
+                        <div class="card text-white bg-transparent mb-3" style="max-width: 20rem;">
+                          <div class="card-body">
+                            <h2 class="card-title">Sighting Highlight:</h2>
+                            
+                                    <div class= "blockquote" id="quote"></div>                          
+                          </div>
+                        </div>
+                                    
+                      </div>
+
+            <!-- transparent card with summary info -->
+        </div>
+        <div class="col">
+            <div class='jumbotron jumbotron-fluid'>
+                    <h1 class="display-3">ROVER:  UFO Sightings Search</h1>
+
+                <div class="row table-wrapper-scroll-y ">
+                    <div class="col-md-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Country</th>
+                                    <th>Shape</th>
+                                    <th>Duration</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-  
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Enter Search Criteria</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="static/js/data.js"></script>
-  <script src="static/js/app.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+                        <div class="form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-calendar-alt"></i>
+
+                                </span>
+
+                                <input type="text" class="form-control" id="date" placeholder="MM/DD/YYYY">
+                            </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-building"></i>
+
+                                </span>
+                                <input type="text" class="form-control" id="city" placeholder="City">
+                            </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-location-arrow"></i>
+
+                                </span>
+                                <input type="text" class="form-control" id="state" placeholder="2 Letter State">
+                            </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-globe-americas"></i>
+
+                                </span>
+                                <input type="text" class="form-control" id="country" placeholder="2 Letter Country">
+                            </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-rocket"></i>
+
+                                </span>
+                                <input type="text" class="form-control" id="shape" placeholder="Shape">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="reset">Clear Search</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="search">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bootstrap core JavaScript -->
+            <script src="static/js/data.js"></script>
+            <script src="static/js/app.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+
 </body>
 
 </html>
