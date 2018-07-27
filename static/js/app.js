@@ -92,13 +92,8 @@ function handleResetButtonClick() {
 // Render the table for the first time on page load
 renderTable();
 
-
-console.log(data);
-
+  //Just for fun, lets highlight some random comments.
 var comments = data.map(data => data.comments);
-  
-
-//Just for fun, lets highlight some random comments.
 var rand = Math.floor(Math.random() * comments.length);
 
 function showquote(){
